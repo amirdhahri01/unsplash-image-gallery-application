@@ -2,11 +2,14 @@ import { useState } from "react";
 import "./App.css";
 import { FaSearch } from "react-icons/fa";
 import Photo from "./Photos/Photo";
+const clientId = "?client_id=ecJci9pc_gxMPU6SnVqK1r5RX6LOVBujpf_9lJC96Ms";
+const mainUrl = "https://api.unsplash.com/photos/";
+const searchUrl = "https://api.unsplash.com/search/photos/";
 function App() {
-  const [loading , setLoading] = useState(true);
-  const [photos , setPhotos] =  useState([]);
-  const [page , setPage] = useState(1);
-  const [query , setQuery] = useState("");
+  const [loading, setLoading] = useState(true);
+  const [photos, setPhotos] = useState([]);
+  const [page, setPage] = useState(1);
+  const [query, setQuery] = useState("");
   return (
     <main>
       <section className="search">
@@ -19,11 +22,9 @@ function App() {
       </section>
       <section className="photos">
         <div className="photos center">
-          {
-            photos.map((photo , index) => {
-              <Photo {...photo} key={index}/>
-            })
-          }
+          {photos.map((photo, index) => {
+            <Photo {...photo} key={index} />;
+          })}
         </div>
       </section>
     </main>
