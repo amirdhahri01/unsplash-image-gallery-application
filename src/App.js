@@ -26,15 +26,13 @@ function App() {
     try {
       const response = await fetch(url);
       const data = await response.json();
-      console.log(data);
-
       setPhotos((oldPhotos) => {
         if (query && page === 1) {
           return data.results;
         } else if (query) {
-          return { ...oldPhotos, ...data.results };
+          return [...oldPhotos, ...data.results];
         } else {
-          return { ...oldPhotos, ...data };
+          return [...oldPhotos, ...data];
         }
       });
     } catch (err) {
@@ -45,6 +43,11 @@ function App() {
   useEffect(() => {
     fetchImages();
   }, [page]);
+  const handleSumbit = (e) => {
+    e.preventDefault();
+    setPage(1);
+    fetchImages();
+  };
   useEffect(() => {
     const event = window.addEventListener("scroll", () => {
       if (
@@ -60,8 +63,13 @@ function App() {
     <main>
       <section className="search">
         <form action="" className="search-form">
-          <input type="text" placeholder="search" />
-          <button type="submit" className="submit-btn">
+          <input
+            type="text"
+            placeholder="search"
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+          />
+          <button type="submit" className="submit-btn" onClick={handleSumbit}>
             <FaSearch />
           </button>
         </form>
