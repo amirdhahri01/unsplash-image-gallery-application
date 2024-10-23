@@ -40,14 +40,17 @@ function App() {
       console.log(err.message());
     }
   };
+
   useEffect(() => {
     fetchImages();
   }, [page]);
+
   const handleSumbit = (e) => {
     e.preventDefault();
     setPage(1);
     fetchImages();
   };
+
   useEffect(() => {
     const event = window.addEventListener("scroll", () => {
       if (

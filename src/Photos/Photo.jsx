@@ -7,7 +7,7 @@ const Photo = ({
   user: {
     name,
     profile_url,
-    profile_image: { meduim },
+    profile_image : { medium },
   },
 }) => {
   return (
@@ -20,7 +20,7 @@ const Photo = ({
             <p>{likes}</p>
           </div>
           <a href={profile_url}>
-            <img src={meduim} alt="user avatar" className="user-img" />
+            <img src={medium} alt="user avatar" className="user-img" />
           </a>
         </div>
       </article>
