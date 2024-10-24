@@ -61,7 +61,7 @@ function App() {
       }
     });
     return window.removeEventListener("scroll", event);
-  });
+  } , []);
   return (
     <main>
       <section className="search">
@@ -78,7 +78,7 @@ function App() {
         </form>
       </section>
       <section className="photos">
-        <div className="photos center">
+        <div className="photos-center">
           {photos.map((photo, index) => (
             <Photo {...photo} key={index} />
           ))}
