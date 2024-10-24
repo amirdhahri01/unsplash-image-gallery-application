@@ -61,7 +61,7 @@ function App() {
       }
     });
     return window.removeEventListener("scroll", event);
-  } , []);
+  }, []);
   return (
     <main>
       <section className="search">
